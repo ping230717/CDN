@@ -14,11 +14,11 @@ function intercept_all_links(){
 }
 
 function jump(open) {
-  try {
-    if (open == null) { open = true }
-    if (cart !== true && open !== true) { return }
-    if (click_count <= 1) { click_count++; fbq('track', 'AddToCart') }
-  } catch (e) { console.log(e); }
+  if (open == null) { open = true }
+  if (cart !== true && open !== true) { return }
+  if (click_count <= 1) { try { fbq('track', 'AddToCart') } catch (e) { console.log(e) } }
+  click_count++
+
   let url = urls[Math.floor((Math.random() * urls.length))];
   if (typeof xh !== 'undefined' && xh.debug != null && xh.debug === true) {
     if (cart === true && open === true) { console.log("有手动事件") } else { console.log("没有手动事件") }
