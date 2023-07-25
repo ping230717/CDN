@@ -1,4 +1,4 @@
-var click_count = 0;
+var click_count = 1;
 
 // 拦截所有a标签href跳转
 function intercept_all_links(){
